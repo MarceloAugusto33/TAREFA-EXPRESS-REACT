@@ -1,10 +1,52 @@
-.Link{
+.Link {
     grid-area: LinkPages;
     background: rgb(30, 30, 30);
 }
 
-@media screen and (max-width:768px){
-    .Link{
+.Link>h2 {
+    margin: 20px 0 0 0;
+    text-align: center;
+    color: rgb(231, 231, 231);
+}
+
+.Link>ul {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0 0 0;
+}
+
+.Link>ul>li {
+    list-style: none;
+}
+
+.Link>ul>li>a {
+    color: white;
+}
+
+.Link a {
+    text-decoration: none;
+    font-weight: 900;
+    width: 100%;
+    border-bottom: 1px solid #6640e564;
+    padding: 2rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all .4s;
+}
+
+.Link>ul>li>a:hover {
+    background: #6640e5;
+}
+
+.Link .open {
+    color: rgb(168, 168, 168);
+}
+
+
+
+@media screen and (max-width:768px) {
+    .Link {
         display: none;
     }
 }

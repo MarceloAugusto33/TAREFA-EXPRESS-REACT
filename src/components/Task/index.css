@@ -1,6 +1,6 @@
 .card__task {
     width: 100%;
-    padding: 2rem 0 2rem 2rem;
+    padding: 2rem 0 2rem 0;
     height: 8rem;
     display: flex;
     align-items: center;
@@ -11,12 +11,28 @@
     overflow: hidden;
 }
 
-.card__task > span{
+.card__task span {
     text-overflow: ellipsis;
     overflow: hidden;
 }
 
-.card__task > button{
+.complet__wrapper {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+#btn-complet {
+    height: 8rem;
+    background: none;
+    font-size: 2rem;
+    padding: 2rem;
+    border: none;
+    cursor: pointer;
+    color: rgb(219, 219, 219);
+}
+
+.card__task>button {
     height: 8rem;
     background: red;
     font-size: 2rem;
@@ -24,4 +40,11 @@
     border: none;
     cursor: pointer;
     color: rgb(219, 219, 219);
+}
+
+.completed {
+    color: white;
+    background: #6740e5;
+    border: none;
+    transition: 0.4s;
 }

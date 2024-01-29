@@ -4,7 +4,6 @@ import './index.css'
 import Task from '../Task/index'
 import Notification from '../Notification'
 
-
 export default function Main() {
     const localTask = localStorage.getItem("TAREFA_EXPRESS:tasks")
     const [reTasks, useReTasks] = useState([])
@@ -31,7 +30,7 @@ export default function Main() {
                 {reTasks.length == 0 && <Notification/>}
                 {
                     reTasks.map((task, index) => (
-                        <Task note={task} key={index} onDelete={onDelete} />
+                        <Task note={task} key={index} onDelete={onDelete}/>
                     ))
                 }
             </div>

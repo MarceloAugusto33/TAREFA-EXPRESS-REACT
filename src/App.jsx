@@ -12,7 +12,7 @@ export default function App() {
   const [modalOpenName, setModalOpenName] = useState(false)
   const [modalOpenNote, setModalOpenNote] = useState(false)
 
-  const [username, setUsername] = useState(localStorage.getItem('TAREFA_EXPRESS:username'))
+  const [username, setUsername] = useState('')
   const [newTask, setNewTask] = useState("")
   const tasks = JSON.parse(localStorage.getItem("TAREFA_EXPRESS:tasks"))
 
@@ -63,7 +63,7 @@ export default function App() {
         modalOpenName &&
         <Modal closeModal={() => setModalOpenName(false)}>
           <label htmlFor="input-username">Nome:</label>
-          <input type="text" id="input-username" onChange={e => setUsername(e.target.value)} />
+          <input type="text" id="input-username" onChange={e => setUsername(e.target.value)} autoComplete='off'/>
           {inputNameNull && <p>Nome não pode ser vazio</p>}
           <button onClick={handleUsername}>Modificar nome</button>
         </Modal>
@@ -72,7 +72,7 @@ export default function App() {
         modalOpenNote &&
         <Modal closeModal={() => setModalOpenNote(false)}>
           <label htmlFor="input-task">Tarefa:</label>
-          <input type="text" id="input-task" onChange={e => setNewTask(e.target.value)} />
+          <input type="text" id="input-task" onChange={e => setNewTask(e.target.value)} autoComplete='off'/>
           {inputTaskNull && <p>Tarefa não pode ser vazia</p>}
           <button onClick={addTask}>Adicionar Tarefa</button>
         </Modal>
