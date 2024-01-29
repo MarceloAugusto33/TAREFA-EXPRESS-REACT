@@ -1,0 +1,19 @@
+.newNote{
+    background: #6740e5;
+    border: none;
+    color: white;
+
+    grid-area: newNote;
+    width: 100%;
+    padding: 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    cursor: pointer;
+    font-size: 1.6rem;
+    font-weight: 600;
+
+}

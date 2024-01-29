@@ -1,35 +1,72 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import Header from './components/Header'
+import Logo from './components/Logo'
+import Main from './components/Main'
+import ButtonNote from './components/ButtonNote'
+import LinkPages from './components/LinkPages'
+import Modal from './components/Modal'
+
+export default function App() {
+  const [modalOpenName, setModalOpenName] = useState(false)
+  const [modalOpenNote, setModalOpenNote] = useState(false)
+
+  const [username, setUsername] = useState(localStorage.getItem('TAREFA_EXPRESS:username'))
+  const [newTask, setNewTask] = useState("")
+  const tasks = JSON.parse(localStorage.getItem("TAREFA_EXPRESS:tasks"))
+
+  useEffect(() => {
+    if (!localStorage.getItem("TAREFA_EXPRESS:tasks")) {
+      localStorage.setItem("TAREFA_EXPRESS:tasks", JSON.stringify([]))
+    }
+    if (!localStorage.getItem("TAREFA_EXPRESS:username")) {
+      localStorage.setItem("TAREFA_EXPRESS:username", 'Usuario')
+    }
+
+  }, [])
+
+  function handleUsername(e) {
+    e.preventDefault()
+    if (!username) return
+
+    localStorage.setItem("TAREFA_EXPRESS:username", username)
+    setModalOpenName(false)
+  }
+
+  function addTask(e) {
+    e.preventDefault()
+    if (!newTask) return
+
+    tasks.push({ name: newTask, id: Date.now() })
+    localStorage.setItem("TAREFA_EXPRESS:tasks", JSON.stringify(tasks))
+
+    setModalOpenNote(false)
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="container">
+      <Logo />
+      <Header name={localStorage.getItem('TAREFA_EXPRESS:username')} openModal={() => setModalOpenName(!modalOpenName)} />
+      <Main />
+      <ButtonNote onClick={() => setModalOpenNote(!modalOpenName)} />
+      <LinkPages />
+      {
+        modalOpenName &&
+        <Modal closeModal={() => setModalOpenName(false)}>
+          <label htmlFor="input-username">Nome:</label>
+          <input type="text" id="input-username" onChange={e => setUsername(e.target.value)} />
+          <button onClick={handleUsername}>Modificar nome</button>
+        </Modal>
+      }
+      {
+        modalOpenNote &&
+        <Modal closeModal={() => setModalOpenNote(false)}>
+          <label htmlFor="input-task">Tarefa:</label>
+          <input type="text" id="input-task" onChange={e => setNewTask(e.target.value)} />
+          <button onClick={addTask}>Adicionar Tarefa</button>
+        </Modal>
+      }
+    </div>
   )
 }
-
-export default App

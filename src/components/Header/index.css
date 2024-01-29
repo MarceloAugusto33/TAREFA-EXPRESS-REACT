@@ -1,0 +1,45 @@
+header{
+    grid-area: header;
+    background: rgb(30, 30, 30);
+    color: rgb(231, 231, 231);
+
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+
+    padding: 2rem;
+}
+
+.user__icon svg{
+    font-size: 5rem;
+}
+
+.user__name{
+    display: flex;
+    flex-direction: column;
+    text-overflow: ellipsis;
+}
+
+.user__name:nth-child(1){
+    color: rgb(222, 222, 222);
+}
+
+.user__name span:last-child{
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user__name span:last-child button{
+    margin: 0 2rem;
+    border: none;
+    background: none;
+    color: #6740e5;
+    cursor: pointer;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

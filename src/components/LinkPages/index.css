@@ -1,0 +1,10 @@
+.Link{
+    grid-area: LinkPages;
+    background: rgb(30, 30, 30);
+}
+
+@media screen and (max-width:768px){
+    .Link{
+        display: none;
+    }
+}
