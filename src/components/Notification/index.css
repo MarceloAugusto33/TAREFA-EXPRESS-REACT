@@ -1,0 +1,71 @@
+.notification{
+    max-width: 50%;
+    margin: auto;
+    animation: showNotification .7s ease-in-out;
+}
+
+.notification img{
+    width: 50%;
+    display: block;
+    margin: auto;
+}
+
+.notification h3{
+    text-align: center;
+    font-size: 5rem;
+    margin: 0 auto 20px;
+}
+
+.notification p{
+    line-height: 2.5rem;
+    width: 60%;
+    margin: auto;
+    text-align: justify;
+}
+
+.notification span{
+    color: #6740e5;
+}
+
+
+@media screen and (max-width:768px){
+    .notification{
+        max-width: 100%;
+        padding: 2rem;
+        color: rgb(212, 212, 212);
+    }
+
+    .notification h3{
+        text-align: center;
+        font-size: 4rem;
+        margin: 0 auto 20px;
+    }
+
+
+    .notification img{
+        display: block;
+        width: 40%;
+        margin: 0 auto 20px auto;
+    }
+
+    .notification p{
+        line-height: 2.5rem;
+        width: 100%;
+    }
+
+    .notification span{
+        color: #6740e5;
+    }
+
+}
+
+@keyframes showNotification {
+    0%{
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

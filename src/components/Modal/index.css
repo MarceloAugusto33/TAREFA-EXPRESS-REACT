@@ -62,6 +62,10 @@
     cursor: pointer;
 }
 
+.modal p{
+    color: rgb(215, 4, 4);
+}
+
 @media screen and (max-width:768px){
     .modal{
         width: 90%;

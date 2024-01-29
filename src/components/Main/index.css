@@ -15,16 +15,3 @@ main>h2 {
     flex-direction: column;
     gap: 20px;
 }
-
-main img {
-    width: clamp(30rem, 50rem, 50rem);
-    margin: auto;
-    height: auto;
-}
-
-@media screen and (max-width:768px) {
-    main img {
-        width: 90%;
-        margin: auto;
-    }
-}

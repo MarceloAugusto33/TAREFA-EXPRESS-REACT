@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import Task from '../Task/index'
 import './index.css'
-import svg from '../../assets/undraw_searching_re_3ra9.svg'
+
+import Task from '../Task/index'
+import Notification from '../Notification'
 
 
 export default function Main() {
@@ -27,7 +28,7 @@ export default function Main() {
         <main>
             <h2>Tarefas</h2>
             <div className="container__tasks">
-                {reTasks.length == 0 && <img src={svg} />}
+                {reTasks.length == 0 && <Notification/>}
                 {
                     reTasks.map((task, index) => (
                         <Task note={task} key={index} onDelete={onDelete} />

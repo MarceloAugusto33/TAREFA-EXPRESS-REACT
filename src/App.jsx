@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
-import Header from './components/Header'
 import Logo from './components/Logo'
 import Main from './components/Main'
-import ButtonNote from './components/ButtonNote'
-import LinkPages from './components/LinkPages'
 import Modal from './components/Modal'
+import Header from './components/Header'
+import LinkPages from './components/LinkPages'
+import ButtonNote from './components/ButtonNote'
 
 export default function App() {
   const [modalOpenName, setModalOpenName] = useState(false)
@@ -15,6 +15,10 @@ export default function App() {
   const [username, setUsername] = useState(localStorage.getItem('TAREFA_EXPRESS:username'))
   const [newTask, setNewTask] = useState("")
   const tasks = JSON.parse(localStorage.getItem("TAREFA_EXPRESS:tasks"))
+
+  const [inputNameNull, setInputNameNull] = useState(false)
+  const [inputTaskNull, setInputTaskNull] = useState(false)
+
 
   useEffect(() => {
     if (!localStorage.getItem("TAREFA_EXPRESS:tasks")) {
@@ -28,20 +32,24 @@ export default function App() {
 
   function handleUsername(e) {
     e.preventDefault()
-    if (!username) return
+    if (!username) return setInputNameNull(true)
 
     localStorage.setItem("TAREFA_EXPRESS:username", username)
+    setUsername("")
     setModalOpenName(false)
+    setInputNameNull(false)
   }
+
 
   function addTask(e) {
     e.preventDefault()
-    if (!newTask) return
+    if (!newTask) return setInputTaskNull(true)
 
     tasks.push({ name: newTask, id: Date.now() })
     localStorage.setItem("TAREFA_EXPRESS:tasks", JSON.stringify(tasks))
-
+    setNewTask("")
     setModalOpenNote(false)
+    setInputTaskNull(false)
   }
 
   return (
@@ -56,6 +64,7 @@ export default function App() {
         <Modal closeModal={() => setModalOpenName(false)}>
           <label htmlFor="input-username">Nome:</label>
           <input type="text" id="input-username" onChange={e => setUsername(e.target.value)} />
+          {inputNameNull && <p>Nome não pode ser vazio</p>}
           <button onClick={handleUsername}>Modificar nome</button>
         </Modal>
       }
@@ -64,6 +73,7 @@ export default function App() {
         <Modal closeModal={() => setModalOpenNote(false)}>
           <label htmlFor="input-task">Tarefa:</label>
           <input type="text" id="input-task" onChange={e => setNewTask(e.target.value)} />
+          {inputTaskNull && <p>Tarefa não pode ser vazia</p>}
           <button onClick={addTask}>Adicionar Tarefa</button>
         </Modal>
       }
