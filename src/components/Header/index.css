@@ -1,37 +1,43 @@
-header{
+header {
     grid-area: header;
     background: rgb(30, 30, 30);
     color: rgb(231, 231, 231);
 
     display: flex;
     align-items: center;
-    gap: 1.2rem;
+    justify-content: space-between;
 
     padding: 2rem;
 }
 
-.user__icon svg{
+.user__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.user__icon svg {
     font-size: 5rem;
 }
 
-.user__name{
+.user__name {
     display: flex;
     flex-direction: column;
     text-overflow: ellipsis;
 }
 
-.user__name:nth-child(1){
+.user__name:nth-child(1) {
     color: rgb(222, 222, 222);
 }
 
-.user__name span:last-child{
+.user__name span:last-child {
     font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.user__name span:last-child button{
+.user__name span:last-child button {
     margin: 0 2rem;
     border: none;
     background: none;
@@ -42,4 +48,3 @@ header{
     align-items: center;
     justify-content: center;
 }
-

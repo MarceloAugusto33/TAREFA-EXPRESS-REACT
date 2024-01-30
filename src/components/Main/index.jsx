@@ -27,10 +27,10 @@ export default function Main() {
         <main>
             <h2>Tarefas</h2>
             <div className="container__tasks">
-                {reTasks.length == 0 && <Notification/>}
+                {reTasks.length == 0 && <Notification />}
                 {
                     reTasks.map((task, index) => (
-                        <Task note={task} key={index} onDelete={onDelete}/>
+                        <Task note={task} key={index} onDelete={onDelete} />
                     ))
                 }
             </div>

@@ -16,7 +16,7 @@ body {
 
 .container {
     display: grid;
-    grid-template-rows: 11rem auto 9rem ;
+    grid-template-rows: 11rem auto 9rem;
     grid-template-columns: 20rem auto;
     grid-template-areas:
         'logo header'
@@ -25,23 +25,23 @@ body {
     height: 100vh;
 }
 
-button{
+button {
     transition: all .4s;
 }
 
-button:hover{
+button:hover {
     filter: brightness(0.7);
 }
 
-@media screen and (max-width:768px){
-    .container{
+@media screen and (max-width:768px) {
+    .container {
         height: 100vh;
         grid-template-columns: 100vw;
-        grid-template-rows: 5rem 10rem auto 10rem;
-        grid-template-areas: 
-        'logo'
-        'header'
-        'main'
-        'newNote';
+        grid-template-rows: 5rem 10rem auto 7rem;
+        grid-template-areas:
+            'logo'
+            'header'
+            'main'
+            'newNote';
     }
 }

@@ -7,10 +7,10 @@ export default function Modal({ children, closeModal }) {
         <div className="modal__wrapper">
             <div className="modal">
                 <button>
-                    <IoMdClose onClick={closeModal}/>
+                    <IoMdClose onClick={closeModal} />
                 </button>
                 <form action="">
-                    {children}    
+                    {children}
                 </form>
             </div>
         </div>

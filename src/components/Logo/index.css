@@ -1,4 +1,4 @@
-.logo{
+.logo {
     grid-area: logo;
     background: #222224;
     display: flex;
@@ -6,12 +6,16 @@
     justify-content: center;
 }
 
-.logo h1{
+.logo h1 {
     text-align: center;
     font-size: 1.6rem;
+}
+
+.logo h1 a{
+    text-decoration: none;
     color: rgb(231, 231, 231);
 }
 
-.logo h1 span{
+.logo h1 span {
     color: #6740e5;
 }

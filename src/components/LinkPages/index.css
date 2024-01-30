@@ -3,27 +3,24 @@
     background: rgb(30, 30, 30);
 }
 
-.Link>h2 {
+.Link h2 {
     margin: 20px 0 0 0;
     text-align: center;
     color: rgb(231, 231, 231);
 }
 
-.Link>ul {
+.Link ul {
     display: flex;
     flex-direction: column;
     margin: 20px 0 0 0;
 }
 
-.Link>ul>li {
+.Link ul li {
     list-style: none;
 }
 
-.Link>ul>li>a {
-    color: white;
-}
-
 .Link a {
+    color: white;
     text-decoration: none;
     font-weight: 900;
     width: 100%;
@@ -35,15 +32,9 @@
     transition: all .4s;
 }
 
-.Link>ul>li>a:hover {
+.Link nav ul li a:hover {
     background: #6640e5;
 }
-
-.Link .open {
-    color: rgb(168, 168, 168);
-}
-
-
 
 @media screen and (max-width:768px) {
     .Link {

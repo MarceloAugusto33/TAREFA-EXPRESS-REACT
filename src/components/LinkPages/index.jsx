@@ -1,19 +1,18 @@
-import './index.css'
 import { CiViewList } from "react-icons/ci";
+import './index.css'
 
-export default function Tags() {
+export default function LinkPages() {
     return (
         <div className='Link'>
             <h2>Navegação</h2>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#"><CiViewList />Tarefas</a>
+                    </li>
+                </ul>
+            </nav>
 
-            <ul>
-                <li>
-                    <a href="#"><CiViewList />Home</a>
-                </li>
-                <li>
-                    <a href="#" className='open'><CiViewList />Tarefas</a>
-                </li>
-            </ul>
         </div>
     )
 }
