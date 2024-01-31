@@ -2,7 +2,7 @@ import { MdPerson } from "react-icons/md";
 import { BsPencilSquare } from "react-icons/bs";
 
 import './index.css'
-export default function Header({ name = 'Usuario', openModal }) {
+export default function Header({ name, openModal }) {
     return (
         <header>
             <div className="user__wrapper">
@@ -11,7 +11,7 @@ export default function Header({ name = 'Usuario', openModal }) {
                 </div>
                 <div className="user__name">
                     <span>Bem vindo!</span>
-                    <span>{name} <button onClick={openModal}><BsPencilSquare /></button></span>
+                    <span>{name ? name : "Usuario"} <button onClick={openModal}><BsPencilSquare /></button></span>
                 </div>
             </div>
 

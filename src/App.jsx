@@ -46,7 +46,7 @@ export default function App() {
         e.preventDefault()
         if (!newTask) return setInputTaskNull(true)
 
-        tasks.push({ name: newTask, id: Date.now() })
+        tasks.push({ name: newTask, id: Date.now(), complet: false })
         localStorage.setItem("TAREFA_EXPRESS:tasks", JSON.stringify(tasks))
         setNewTask("")
         setModalOpenNote(false)

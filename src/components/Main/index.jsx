@@ -23,6 +23,7 @@ export default function Main() {
         useReTasks(tasksFilter)
     }
 
+
     return (
         <main>
             <h2>Tarefas</h2>
@@ -30,7 +31,11 @@ export default function Main() {
                 {reTasks.length == 0 && <Notification />}
                 {
                     reTasks.map((task, index) => (
-                        <Task note={task} key={index} onDelete={onDelete} />
+                        <Task
+                            note={task}
+                            key={task.id}
+                            onDelete={onDelete}
+                        />
                     ))
                 }
             </div>
