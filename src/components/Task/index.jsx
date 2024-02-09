@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
 import './index.css'
+import * as Dialog from '@radix-ui/react-dialog';
 
 //ICONS
-import { MdDeleteForever } from "react-icons/md";
+import { MdDeleteForever, MdClose } from "react-icons/md";
 import { FaRegCircle, FaRegCheckCircle } from "react-icons/fa";
 
 export default function Task({ note, onDelete }) {
@@ -29,14 +30,36 @@ export default function Task({ note, onDelete }) {
     }, [completed])
 
     return (
-        <div className={`card__task  ${completed && 'completed'}`}>
-            <div className="complet__wrapper">
-                <button id='btn-complet' onClick={handleComplet}>
-                    {completed ? <FaRegCheckCircle /> : <FaRegCircle />}
-                </button>
-                <span>{note.name}</span>
+        <Dialog.Root>
+            <div className={`card__task  ${completed && 'completed'}`}>
+                <div className="complet__wrapper">
+                    <button id='btn-complet' onClick={handleComplet}>
+                        {completed ? <FaRegCheckCircle /> : <FaRegCircle />}
+                    </button>
+                    <Dialog.DialogTrigger id='note-name'>
+                        {note.name}
+                    </Dialog.DialogTrigger>
+                </div>
+                <button onClick={() => onDelete(note.id)}><MdDeleteForever /></button>
             </div>
-            <button onClick={() => onDelete(note.id)}><MdDeleteForever /></button>
-        </div>
+
+            <Dialog.Portal>
+                <Dialog.Overlay className="overlay" />
+                <Dialog.Content className='overlay-content'>
+                    <Dialog.Close className='overlay-btnclose'>
+                        <MdClose />
+                    </Dialog.Close>
+                    <Dialog.Title>
+                        Tarefa
+                    </Dialog.Title>
+                    <Dialog.Description className='overlay-description'>
+                        {note.name}
+                    </Dialog.Description>
+                </Dialog.Content>
+            </Dialog.Portal>
+        </Dialog.Root>
+
+
+
     )
 }
